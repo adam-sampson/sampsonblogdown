@@ -1,0 +1,7 @@
+require(blogdown)
+blogdown::install_hugo()
+
+blogdown::new_site(dir="./blogdown", sample = FALSE, theme = "gcushen/hugo-academic", theme_example = FALSE)
+
+setwd("~/MSA/sampsonblogdown/blogdown")
+blogdown::serve_site()
