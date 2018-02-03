@@ -109,7 +109,7 @@ paginate = 10
   # Configuration of project pages.
   [params.projects]
     # List publications and talks related to the project?
-    list_children = false
+    list_children = true
 
   # Social/Academic Networking
   #
@@ -151,6 +151,11 @@ paginate = 10
   name = "Home"
   url = "#about"
   weight = 1
+  
+#[[menu.main]]
+#  name = "Projects"
+#  url = "#projects"
+#  weight = 4
 
 # Taxonomies.
 #[taxonomies]
