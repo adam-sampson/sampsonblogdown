@@ -32,5 +32,21 @@ filter_default = 0
   name = "All"
   tag = "*"
 
+[[filter]]
+  name = "Data Analysis"
+  tag = "data-analysis"
+
+[[filter]]
+  name = "App Coding"
+  tag = "apps"
+  
+[[filter]]
+  name = "Lidar"
+  tag = "lidar"
+
+[[filter]]
+  name = "Cave Compass"
+  tag = "cave-compass"
+
 +++
 
