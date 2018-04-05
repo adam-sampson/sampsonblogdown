@@ -129,15 +129,15 @@ paginate = 10
   #
   #   Full list: https://jpswalsh.github.io/academicons/
 
-  [[params.social]]
-    icon = "envelope"
-    icon_pack = "fa"
-    link = ""
+  #[[params.social]]
+  #  icon = "envelope"
+  #  icon_pack = "fa"
+  #  link = ""
 
   [[params.social]]
     icon = "github"
     icon_pack = "fa"
-    link = ""
+    link = "https://github.com/adam-sampson/"
 
 # Navigation Links
 #   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
