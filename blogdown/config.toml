@@ -113,7 +113,7 @@ paginate = 10
 
   # Configuration of blog pages.
   [params.blogs]
-    list_children = false
+    list_children = true
 
   # Social/Academic Networking
   #
