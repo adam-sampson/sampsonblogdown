@@ -111,6 +111,10 @@ paginate = 10
     # List publications and talks related to the project?
     # list_children = false
 
+  # Configuration of blog pages.
+  [params.blogs]
+    list_children = false
+
   # Social/Academic Networking
   #
   # Icon pack "fa" includes the following social network icons:
