@@ -107,9 +107,9 @@ paginate = 10
   custom_js  = []
 
   # Configuration of project pages.
-  [params.projects]
+  # [params.projects]
     # List publications and talks related to the project?
-    list_children = false
+    # list_children = false
 
   # Social/Academic Networking
   #
