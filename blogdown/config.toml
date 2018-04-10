@@ -18,8 +18,8 @@ pygmentsCodefencesGuessSyntax = true
 #googleAnalytics = "XXX"
 
 [Params]
-  subtitle = "Build a beautiful and simple website in minutes"
-  logo = "img/avatar-icon.png"
+  subtitle = "Data Science for Business Insights"
+  logo = "img/sampson-logo.png"
   favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"
   commit = false
