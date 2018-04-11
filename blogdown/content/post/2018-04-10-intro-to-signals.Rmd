@@ -1,0 +1,13 @@
+---
+title: Intro to Signals
+author: Adam Sampson
+date: '2018-04-10'
+slug: intro-to-signals
+categories: []
+tags:
+  - FFT
+  - envelope
+  - signal analysis
+draft: true
+---
+

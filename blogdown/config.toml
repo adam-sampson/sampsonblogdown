@@ -1,6 +1,7 @@
 # The URL of your website.
 # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
 # baseurl = "adam-sampson.github.io" ## Was getting this doubled...
+baseurl = "/"
 publishDir = "../../adam-sampson.github.io"
 DefaultContentLanguage = "en"
 #DefaultContentLanguage = "ja"
@@ -15,12 +16,12 @@ pygmentsCodefencesGuessSyntax = true
 #pygmentsUseClassic = true
 #pygmentOptions = "linenos=inline"
 #disqusShortname = "XXX"
-#googleAnalytics = "XXX"
+googleAnalytics = "UA-117357988-1"
 
 [Params]
   subtitle = "Data Science for Business Insights"
   logo = "img/sampson-logo.png"
-  favicon = "img/favicon.ico"
+  # favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"
   commit = false
   rss = true
