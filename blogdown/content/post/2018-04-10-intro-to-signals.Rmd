@@ -11,3 +11,12 @@ tags:
 draft: true
 ---
 
+# Intro
+
+# Low Pass Filter or LOESS 
+
+# High Pass Filter
+
+# Amplitude Envelope
+
+# FFT

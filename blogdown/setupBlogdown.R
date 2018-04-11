@@ -5,7 +5,7 @@ blogdown::install_hugo()
 
 setwd("~/MSA/sampsonblogdown/blogdown")
 
-blogdown::build_site(local = TRUE,run_hugo = TRUE)
+blogdown::build_site()
 blogdown::hugo_build()
 
 blogdown::serve_site()
