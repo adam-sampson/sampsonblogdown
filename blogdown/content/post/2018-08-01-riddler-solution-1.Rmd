@@ -8,6 +8,8 @@ output: html_document
 
 FiveThirtyEight has a set of puzzles they post weekly and this week I came across one I thought would be good for practicing recursive programming. The problem is to figure out what moves will solve a puzzle. 
 
+https://fivethirtyeight.com/features/the-perfect-doodle-puzzle-to-keep-you-busy-during-boring-meetings/
+
 > Riddler Classic
 > From Renaud Dubedout, a puzzle perfect for doodling during a boring class or meeting, not that I would ever endorse > that sort of thing:
 > 
