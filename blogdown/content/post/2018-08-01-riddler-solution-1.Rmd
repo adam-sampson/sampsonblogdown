@@ -280,6 +280,8 @@ max(unlist(lapply(winning_runs2, max)))
 # [1] 13
 ```
 
+Since the structure of the data does not contain lists within lists, there is no solution to the problem. Instead we get 25 lists containing a single vector each.
+
 ## How far can you get from each possible starting position?
 
 ```{r}
