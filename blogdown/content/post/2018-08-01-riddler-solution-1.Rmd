@@ -30,6 +30,7 @@ I believe that case one described below is the correct interpretation for how th
 2. For the entire game you may either move horizontally or vertically.
 
      a. On any move you may move either horizontally or diagonally
+     
      b. On any move you may move either vertically or diagonally
 
 # Interpretation 1 of the rules...
@@ -171,6 +172,7 @@ for(i in 1:5){
 2. For the entire game you may either move horizontally or vertically.
 
      a. On any move you may move either horizontally or diagonally
+     
      b. On any move you may move either vertically or diagonally
      
 Since a and b are simply transpositions of each other, after calculating all staring positions for one we will have the translated results for the other. In other words...we only have to calculate one of the two. 
