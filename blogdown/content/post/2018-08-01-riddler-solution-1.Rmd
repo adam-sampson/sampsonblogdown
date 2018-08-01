@@ -28,6 +28,7 @@ I believe that case one described below is the correct interpretation for how th
 
 1. On any given move you may move horizontally 3, vertically 3, or diagonally 2
 2. For the entire game you may either move horizontally or vertically.
+
      a. On any move you may move either horizontally or diagonally
      b. On any move you may move either vertically or diagonally
 
@@ -168,6 +169,7 @@ for(i in 1:5){
 # Interpretation 2 of the rules...
 
 2. For the entire game you may either move horizontally or vertically.
+
      a. On any move you may move either horizontally or diagonally
      b. On any move you may move either vertically or diagonally
      
