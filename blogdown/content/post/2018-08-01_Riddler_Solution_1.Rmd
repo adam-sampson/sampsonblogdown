@@ -1,0 +1,134 @@
+---
+title: "Riddler Solution 1"
+author: "Adam Sampson"
+output: html_document
+---
+
+# Solving The Riddler doodle puzzle
+
+FiveThirtyEight has a set of puzzles they post weekly and this week I came across one I thought would be good for practicing recursive programming. The problem is to figure out what moves will solve a puzzle. 
+
+> Riddler Classic
+> From Renaud Dubedout, a puzzle perfect for doodling during a boring class or meeting, not that I would ever endorse > that sort of thing:
+> 
+> Start with an empty 5-by-5 grid of squares, and choose any square you want as your starting square. The rules for > moving through the grid from there are strict:
+> 
+> You may move exactly three cells horizontally or vertically, or you may move exactly two cells diagonally.
+> You are not allowed to visit any cell you already visited.
+> You are not allowed to step outside the grid.
+> You win if you are able to visit all 25 cells.
+> 
+> Is it possible to win? If so, how? If not, what are the largest and smallest numbers of squares you can legally visit?
+
+# Setting up the code
+
+To set up the code we need an empty starting matrix and a function to try out all of the potential possible moves. After a single move you have multiple new possible moves, branching out at every opportunity. When a move isn't possible that branch dies. This is a perfect example of a recursive problem up to 25 levels deep. 
+
+```{r setup, include=FALSE}
+#####
+# https://fivethirtyeight.com/features/the-perfect-doodle-puzzle-to-keep-you-busy-during-boring-meetings/
+# solving with R.
+#---
+
+init_matrix <- matrix(integer(),nrow = 5,ncol = 5)
+pos <- list(col=2,row=1)
+
+wander_path <- function(cur.pos, curr.matrix, cur.iter = 1){
+  # If the position is not on the board return NULL
+  if((cur.pos$col<1) | 
+     (cur.pos$col>ncol(curr.matrix)) |
+     (cur.pos$row<1) |
+     (cur.pos$row>nrow(curr.matrix))
+  ) {
+    return(NULL)
+  }
+  
+  # If the position is already taken return NULL
+  if(!is.na(curr.matrix[cur.pos$row,cur.pos$col])){
+    return(NULL)
+  }
+  
+  # It must be a valid move if the code gets here...
+  
+  # Add the current current position to the matrix of taken positions
+  curr.matrix[cur.pos$row,cur.pos$col] <- cur.iter
+  
+  # If this move fills up the board then return the results of the board
+  if(!any(is.na(curr.matrix))){
+    return(list(curr.matrix))
+  }
+  
+  # Otherwise create a list of new positions to check
+  new.pos <- list(
+    # For each horizontal/vertical move
+    list(col = cur.pos$col + 3, row = cur.pos$row),
+    list(col = cur.pos$col - 3, row = cur.pos$row),
+    list(col = cur.pos$col , row = cur.pos$row + 3),
+    list(col = cur.pos$col , row = cur.pos$row - 3),
+    # For each diagonal move
+    list(col = cur.pos$col + 2, row = cur.pos$row + 2),
+    list(col = cur.pos$col + 2, row = cur.pos$row - 2),
+    list(col = cur.pos$col - 2, row = cur.pos$row + 2),
+    list(col = cur.pos$col - 2, row = cur.pos$row - 2)
+  )
+  
+  # Recursively run all the possible next moves, then combine the results
+  # into a single list while dropping any NULL results
+  out <- do.call(c,lapply(new.pos, wander_path, curr.matrix, cur.iter + 1))
+  return(out)
+}
+
+test_run <- wander_path(cur.pos = pos, curr.matrix = init_matrix)
+
+# Show the first result
+(test_run[[1]])
+```
+
+# Running the function for all possible starting positions
+
+Once a function is created to run all possible moves for a starting position, it is pretty trivial to run the function for all starting positions.
+
+This code takes about a minute and a half to run. If you want to save time you could easily notice that there are only really only 6 unique starting positions (out of the 25). The rest of the starting positions can be calculated by a combination of rotation/mirroring of the 6 unique starting positions. A little bit more on this later.
+
+```{r setup, include=FALSE}
+winning_runs <- list()
+for(i in 1:5){
+  for(j in 1:5){
+    winning_runs[paste0(i,",",j)] <- list(wander_path(cur.pos = list(row=i,col=j), curr.matrix = init_matrix))
+  }
+}
+
+# Let's see the first set of winning moves found
+(winning_runs$`1,1`[[1]])
+```
+
+# How many possible solutions for each starting position?
+
+Using the above we can pretty quickly calculate the number of solutions for each starting position by adding up the lengths of each list. This can be stored in a matrix. 
+
+```{r setup, include=FALSE}
+# Let's see how many winning paths there are for each starting position
+win_counts <- matrix(integer(),nrow = 5,ncol = 5)
+for(i in 1:5){
+  for(j in 1:5){
+    win_counts[i,j] <- length(winning_runs[[paste0(i,",",j)]])
+  }
+}
+
+# Let's see how many winning paths are available for each starting position
+(win_counts)
+
+
+```
+
+```{r setup, include=FALSE}
+# Many of these are mirrored, let's only look at the starting positions that can't
+# be created by rotating or mirroring the board.
+#       [,1] [,2] [,3] [,4] [,5]
+# [1,]  552  548  552
+# [2,]       412  400
+# [3,]            352
+# [4,]  
+# [5,]
+# But note that within each starting point many of the paths taken are mirrors of other paths...
+```
