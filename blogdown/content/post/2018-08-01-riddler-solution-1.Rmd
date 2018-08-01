@@ -82,6 +82,12 @@ test_run <- wander_path(cur.pos = pos, curr.matrix = init_matrix)
 
 # Show the first result
 (test_run[[1]])
+#     [,1] [,2] [,3] [,4] [,5]
+#[1,]   16    1   23   15    2
+#[2,]    6   20   12    5   21
+#[3,]   24    9   17   25   10
+#[4,]   13    4   22   14    3
+#[5,]    7   19   11    8   18
 ```
 
 # Running the function for all possible starting positions
@@ -100,6 +106,12 @@ for(i in 1:5){
 
 # Let's see the first set of winning moves found
 (winning_runs$`1,1`[[1]])
+#     [,1] [,2] [,3] [,4] [,5]
+#[1,]    1   16   19    2   15
+#[2,]   11   22    5   12   21
+#[3,]   18    8   25   17    7
+#[4,]    4   13   20    3   14
+#[5,]   10   23    6    9   24
 ```
 
 # How many possible solutions for each starting position?
@@ -117,8 +129,12 @@ for(i in 1:5){
 
 # Let's see how many winning paths are available for each starting position
 (win_counts)
-
-
+#     [,1] [,2] [,3] [,4] [,5]
+#[1,]  552  548  552  548  552
+#[2,]  548  412  400  412  548
+#[3,]  552  400  352  400  552
+#[4,]  548  412  400  412  548
+#[5,]  552  548  552  548  552
 ```
 
 ```{r setup, include=FALSE}
