@@ -1,7 +1,14 @@
 ---
-title: "Riddler Solution 1"
-author: "Adam Sampson"
-output: html_document
+title: Riddler Puzzle 1
+author: Adam Sampson
+date: '2018-08-01'
+slug: riddler-solution-1
+categories: []
+tags:
+  - R
+  - recursion
+  - puzzle
+draft: false
 ---
 
 # Solving The Riddler doodle puzzle
@@ -34,7 +41,7 @@ Many approaches that aren't recrusive would be to come up with a list of all pos
 
 To set up the code we need an empty starting matrix and a function to try out all of the potential possible moves. After a single move you have multiple new possible moves, branching out at every opportunity. When a move isn't possible that branch dies. This is a perfect example of a recursive problem up to 25 levels deep. 
 
-```{r setup, include=FALSE}
+```{r}
 #####
 # https://fivethirtyeight.com/features/the-perfect-doodle-puzzle-to-keep-you-busy-during-boring-meetings/
 # solving with R.
@@ -106,7 +113,7 @@ Once a function is created to run all possible moves for a starting position, it
 
 This code takes about a minute and a half to run. If you want to save time you could easily notice that there are only really only 6 unique starting positions (out of the 25). The rest of the starting positions can be calculated by a combination of rotation/mirroring of the 6 unique starting positions. A little bit more on this later.
 
-```{r setup, include=FALSE}
+```{r}
 winning_runs <- list()
 for(i in 1:5){
   for(j in 1:5){
@@ -128,7 +135,7 @@ for(i in 1:5){
 
 Using the above we can pretty quickly calculate the number of solutions for each starting position by adding up the lengths of each list. This can be stored in a matrix. 
 
-```{r setup, include=FALSE}
+```{r}
 # Let's see how many winning paths there are for each starting position
 win_counts <- matrix(integer(),nrow = 5,ncol = 5)
 for(i in 1:5){
@@ -147,7 +154,7 @@ for(i in 1:5){
 #[5,]  552  548  552  548  552
 ```
 
-```{r setup, include=FALSE}
+```{r}
 # Many of these are mirrored, let's only look at the starting positions that can't
 # be created by rotating or mirroring the board.
 #       [,1] [,2] [,3] [,4] [,5]
